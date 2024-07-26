@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(PagamentoNotFoundException.class)
-    public ResponseEntity<?> pagamentoNotFound(PagamentoNotFoundException ex) {
+    public ResponseEntity<ObjectNode> handlepagamentoNotFoundException(PagamentoNotFoundException ex) {
         log.warn("Não foi possivel encontrar o pagamento");
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(converterMensagem("Não foi possivel encontrar o pagamento"));
     }
