@@ -1,0 +1,84 @@
+name: Java CI/CD with Spring Boot
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:12
+        env:
+          POSTGRES_DB: venda_veiculo_db
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: XXXI.X.MMXVII
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'zulu'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Archive test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: surefire-reports
+          path: target/surefire-reports
+
+      - name: Install Heroku CLI
+        run: |
+          curl https://cli-assets.heroku.com/install.sh | sh
+          heroku --version
+
+      - name: Authenticate with Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          echo "machine api.heroku.com" > ~/.netrc
+          echo "login" >> ~/.netrc
+          echo "password=${HEROKU_API_KEY}" >> ~/.netrc
+          chmod 600 ~/.netrc
+
+      - name: Add Heroku remote
+        run: git remote add heroku https://git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+
+      - name: Check repository state
+        run: |
+          git status
+          git branch -a
+          git remote -v
+
+      - name: Create and configure branch main
+        run: |
+          git fetch origin
+          git checkout -b main origin/main || git checkout main
+          git branch -u origin/main main
+          git branch -vv
+
+      - name: Configure Git credential helper
+        run: |
+          git config --global credential.helper "store --file ~/.git-credentials"
+          echo "https://oauth:${{ secrets.HEROKU_API_KEY }}@git.heroku.com" > ~/.git-credentials
+
+      - name: Push to Heroku
+        run: git push heroku main
