@@ -4,8 +4,10 @@ spring:
     url: jdbc:postgresql:venda_veiculo_db
     username: postgres
     password: XXXI.X.MMXVII
+  profiles:
     hikari:
       maximum-pool-size: 10
+    active: dev
   jpa:
     hibernate:
       ddl-auto: update
@@ -17,8 +19,6 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         jdbc:
           url: jdbc:postgresql://postgresql:5432/venda_veiculo_db
-  profiles:
-    active: dev
   logging:
     level:
       org:
@@ -28,9 +28,6 @@ spring:
         hibernate:
           SQL: DEBUG
           type: TRACE
+
 server:
   port: 8081
-feign:
-  client:
-    registra-veiculo:
-      url: http://localhost:8080/api/v1

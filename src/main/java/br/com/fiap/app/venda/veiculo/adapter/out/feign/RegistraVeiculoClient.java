@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import java.util.List;
 
 @Component
-@FeignClient(value = "registra-veiculo", url = "${feign.client.registra-veiculo.url}")
+@FeignClient(value = "registra-veiculo", url = "https://registra-veiculo-f268b20c9e70.herokuapp.com/api/v1")
 public interface RegistraVeiculoClient {
 
     @GetMapping("/veiculo")

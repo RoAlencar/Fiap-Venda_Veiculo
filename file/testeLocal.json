@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "e86dfed9-e922-4f60-9aa4-2211357bb8a9",
+		"name": "FIAP - Venda Veiculo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10199583"
+	},
+	"item": [
+		{
+			"name": "Webhook Status pagamento",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"codigoPagamento\" : \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/webhook/status-pagamento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"webhook",
+						"status-pagamento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Veiculos Vendidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/venda-veiculo/vendas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"venda-veiculo",
+						"vendas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Veiculos Disponiveis",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/venda-veiculo/veiculos/disponiveis",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"venda-veiculo",
+						"veiculos",
+						"disponiveis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Veiculos Vendidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/v1/venda-veiculo/veiculos/vendidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"venda-veiculo",
+						"veiculos",
+						"vendidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reservar Veiculo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idVeiculo\": 9,\r\n  \"cpfCliente\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/venda-veiculo/reservar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"venda-veiculo",
+						"reservar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vender Veiculo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idVeiculo\": 9,\r\n  \"cpfCliente\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/venda-veiculo/vender",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"venda-veiculo",
+						"vender"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
