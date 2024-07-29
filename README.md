@@ -34,7 +34,8 @@ Com a aplicação rodando, acesse o localhost (porta 8081), e usufrua do sistema
 ## Documentação 📒
 A documentação da API pode ser acessada em:
 
-[Swagger - Local](http://localhost:8080/swagger-ui/index.html)
+* [Swagger - Local](http://localhost:8080/swagger-ui/index.html)
+* [Swagger - Heroku](https://venda-veiculo-8d2e82c6de8f.herokuapp.com/swagger-ui/index.html#/)
 
 ## Postman Collections
 
