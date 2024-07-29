@@ -1,36 +1,6 @@
 spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql:venda_veiculo_db
-    username: postgres
-    password: XXXI.X.MMXVII
-    hikari:
-      maximum-pool-size: 10
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        temp:
-          use_jdbc_metadata_defaults: false
-        format_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-        jdbc:
-          url: jdbc:postgresql://postgresql:5432/venda_veiculo_db
-  profiles:
-    active: dev
-  logging:
-    level:
-      org:
-        springframework:
-          orm:
-            jpa: DEBUG
-        hibernate:
-          SQL: DEBUG
-          type: TRACE
+  application:
+    name: venda-veiculo
+
 server:
   port: 8081
-feign:
-  client:
-    registra-veiculo:
-      url: http://localhost:8080/api/v1
