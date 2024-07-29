@@ -10,11 +10,4 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-
-server:
-  port: 8081
-
-feign:
-  client:
-    registra-veiculo:
-      url: ${PROD_FEIGN_CLIENT}
+feign.client.registra-veiculo.url: https://registra-veiculo-f268b20c9e70.herokuapp.com/api/v1
