@@ -10,4 +10,3 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-feign.client.registra-veiculo.url: ${PROD_FEIGN_CLIENT}

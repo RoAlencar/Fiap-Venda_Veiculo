@@ -26,5 +26,3 @@ spring:
         hibernate:
           SQL: DEBUG
           type: TRACE
-
-feign.client.registra-veiculo.url: http://localhost:8080/api/v1
