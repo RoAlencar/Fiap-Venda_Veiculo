@@ -1,7 +1,5 @@
 spring:
   application:
     name: venda-veiculo
-  profiles:
-    active: prod
 server:
   port: 8081
