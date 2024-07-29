@@ -10,4 +10,4 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-feign.client.registra-veiculo.url: https://registra-veiculo-f268b20c9e70.herokuapp.com/api/v1
+feign.client.registra-veiculo.url: ${PROD_FEIGN_CLIENT}
